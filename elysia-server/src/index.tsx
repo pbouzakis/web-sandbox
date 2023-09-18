@@ -29,6 +29,8 @@ app.get('/jsx', () => (
   </html>
 ));
 
+app.get('*', (context) => `<h1>Catchall! url: ${context.request.url}`);
+
 app.listen(3000);
 
 console.log(
