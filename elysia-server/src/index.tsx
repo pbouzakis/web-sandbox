@@ -5,12 +5,15 @@ const app = new Elysia();
 
 app.use(html());
 
-app.get("/hello", () => "Hello Elysia")
+app.get("/hello", () => "<h1>Hello Elysia</h1>");
 
-app.get('/html', () => `
+// The following are meant to be served from vite-project.
+
+app.get('/web/html', () => `
   <html lang="en">
       <head>
           <title>Hello World</title>
+          <link href="/styles.css" />
       </head>
       <body>
           <h1>Hello World</h1>
@@ -18,10 +21,11 @@ app.get('/html', () => `
   </html>  `
 );
 
-app.get('/jsx', () => (
+app.get('/web/jsx', () => (
   <html lang="en">
       <head>
           <title>This is written in jsx. Nice!</title>
+          <link href="/styles.css" />
       </head>
       <body>
           <h1>Hello World from Bun! (w/ jsx)</h1>

@@ -13,5 +13,4 @@ Installed is support for jsx.
 ## vite-project
 For quick and dirty client side js apps.
 This project is setup to proxy all `/web` requests to the elysia-server.
-The `web` prefix is stripped off.
-Example `web/path` would server `/path` from elysia-server.
+

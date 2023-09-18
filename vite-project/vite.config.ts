@@ -7,7 +7,6 @@ export default defineConfig({
     proxy: {
       '/web': {
         target: 'http://localhost:3000',
-        rewrite: (path) => path.replace(/^\/ssr/, ''),
       },
     },
   },
