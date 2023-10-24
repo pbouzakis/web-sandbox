@@ -1,0 +1,17 @@
+.important {
+  color: red;
+  font-size: 2rem;
+}
+
+.purple {
+  color: purple;
+}
+
+.hidden {
+  display: none;
+}
+
+.component {
+  padding: .5rem;
+  border: 1px solid #ccc;
+}

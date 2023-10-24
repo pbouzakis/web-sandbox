@@ -5,9 +5,30 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
+    <link id="shared-css" rel="stylesheet" href="/style-share.css"/>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h1 class="important">Testing Constructable StyleSheets</h1>
+      <button data-action="shadow">Create In Shadow</button>
+      <button data-action="light">Create In Light</button>
+      <main>
+        <div id="shadow" class="hidden">
+          I am in the shadow!
+        </div>
+        <div id="light" class="hidden">
+          I am in the light!
+        </div>
+      </main>      
+    </div>
+    <template id="tpl-test">
+      <section class="component">
+        <h2 class="important">Hello There</h2>
+        <p class="green">I am green?</p>
+        <p class="purple">Am I purple?</p>
+        <slot></slot>
+      </section>
+    </template>    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
