@@ -23,22 +23,22 @@ app.get('/web/html', () => `
 
 app.get('/web/jsx', () => (
   <html lang="en">
-      <head>
-          <title>This is written in jsx. Nice!</title>
-          <link href="/styles.css" />
-      </head>
-      <body>
-          <h1>Hello World from Bun! (w/ jsx)</h1>
-      </body>
+    <head>
+      <title>This is written in jsx. Nice!</title>
+      <link href="/styles.css" />
+    </head>
+    <body>
+      <h1>Hello World from Bun! (w/ jsx)</h1>
+    </body>
   </html>
 ));
 
 app.get('/web/htmx', () => (
   <html lang="en">
-      <head>
-          <title>HTMX Playground</title>
-          <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
-          <style>{`
+    <head>
+      <title>HTMX Playground</title>
+      <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+      <style>{`
             :root {
               font-family: Inter, sans-serif;
               line-height: 1.5;
@@ -62,20 +62,38 @@ app.get('/web/htmx', () => (
               align-items: center;
             }
           `}</style>
-      </head>
-      <body>
-          <main>
-            <h1>Hello World from Bun, Elysia, TypeScript, and HTMX! (BETH)</h1>
-            <p>Technically BETH stack, the T is Turbo, but don't have that setup yet.</p>
-            <a hx-get="/web/htmx/more" hx-swap="outerHTML">Click for more!</a>
-          </main>
-      </body>
+    </head>
+    <body>
+      <main>
+        <h1>Hello World from Bun, Elysia, TypeScript, and HTMX! (BETH)</h1>
+        <p>Technically BETH stack, the T is Turbo, but don't have that setup yet.</p>
+        <a hx-get="/web/htmx/more" hx-swap="outerHTML">Click for more!</a>
+      </main>
+      <script src="/public/client.js"></script>
+    </body>
   </html>
 ));
 
 app.get('/web/htmx/more', () => (
-  <p>More content coming your way!</p>
+  <div>
+    <div>
+      <p>More content coming your way!</p>
+      <a hx-get="/web/htmx/foo" hx-swap="outerHTML">Click for more!</a>
+    </div>
+    <button onclick="pbo.renderFoo('#playground')">Render Foo Link</button>
+    <button onclick="pbo.renderFooTemplate('#playground')">Render Foo Link w/ Template</button>
+    <section id="playground"></section>
+    <template id="tpl-foo">
+      <a hx-get="/web/htmx/foo" hx-swap="outerHTML">HTMX Hook! (template)</a>
+    </template>
+  </div>
 ));
+
+app.get('/web/htmx/foo', () => (
+  <p>Foo foo foo!</p>
+));
+
+app.get("/public/client.js", () => new Response(Bun.file("./public/client.js")))
 
 app.get('*', (context) => `<h1>Catchall! url: ${context.request.url}`);
 

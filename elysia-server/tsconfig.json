@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
@@ -14,12 +16,17 @@
     "jsx": "react",
     "jsxFactory": "Html.createElement",
     "jsxFragmentFactory": "Html.Fragment",
-    "plugins": [{ "name": "@kitajs/ts-html-plugin" }],
+    "plugins": [
+      {
+        "name": "@kitajs/ts-html-plugin"
+      }
+    ],
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": [
-      "bun-types" // add Bun global
+      "bun-types", // add Bun global,
+      "web"
     ]
   }
 }

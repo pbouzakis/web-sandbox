@@ -3,7 +3,8 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.tsx"
+    "dev": "bun run --watch src/index.tsx",
+    "client-dev": "bun build --watch src/client/client.ts --outdir ./public"
   },
   "dependencies": {
     "@elysiajs/html": "^0.6.6",
@@ -12,6 +13,7 @@
     "elysia": "latest"
   },
   "devDependencies": {
+    "@types/web": "^0.0.119",
     "bun-types": "latest"
   },
   "module": "src/index.js"
