@@ -77,7 +77,7 @@ app.get('/web/htmx', () => (
 app.get('/web/htmx/more', () => (
   <div>
     <div>
-      <p>More content coming your way!</p>
+      <p id="more-content">More content coming your way!</p>
       <a hx-get="/web/htmx/foo" hx-swap="outerHTML">Click for more!</a>
     </div>
     <button onclick="pbo.renderFoo('#playground')">Render Foo Link</button>
@@ -85,6 +85,8 @@ app.get('/web/htmx/more', () => (
     <section id="playground"></section>
     <template id="tpl-foo">
       <a hx-get="/web/htmx/foo" hx-swap="outerHTML">HTMX Hook! (template)</a>
+      <div data-console="I am here">Just a div!</div>
+      <button onclick="pbo.addConsoleTo('#more-content')">Add console</button>
     </template>
   </div>
 ));
