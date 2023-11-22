@@ -85,7 +85,7 @@ app.get('/web/htmx/more', () => (
     <section id="playground"></section>
     <template id="tpl-foo">
       <a hx-get="/web/htmx/foo" hx-swap="outerHTML">HTMX Hook! (template)</a>
-      <div data-console="I am here">Just a div!</div>
+      <div data-console="I HAVE BEEN CONSOLED!!!!">Just a div!</div>
       <button onclick="pbo.addConsoleTo('#more-content')">Add console</button>
     </template>
   </div>
